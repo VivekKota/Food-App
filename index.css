@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-between;
   margin: 10px;
+  justify-content: space-between;
   border: 1px solid black;
+  align-items: center;
 }
 
 .logo {
