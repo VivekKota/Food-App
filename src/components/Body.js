@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const filterRestauarants = (searchTxt, restaurants) => {
   const filteredData = restaurants.filter((restaurant) => {
@@ -22,7 +23,7 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83667"
     );
     const json = await data.json();
     console.log(json);
@@ -33,6 +34,8 @@ const Body = () => {
       json?.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
+
+  if (!allRestaurants) return null;
 
   if (allRestaurants.length == 0) {
     return <Shimmer />;
@@ -62,7 +65,9 @@ const Body = () => {
             <h1>No restaurants match your filter</h1>
           ) : (
             filteredRestaurants.map((item) => (
-              <RestaurantCard item={item} key={item?.info?.id} />
+              <Link to={"/restaurant/" + item?.info?.id} key={item?.info?.id}>
+                <RestaurantCard item={item} />
+              </Link>
             ))
           )}
         </div>

@@ -4,6 +4,7 @@
   justify-content: space-between;
   border: 1px solid black;
   align-items: center;
+  height: 90px;
 }
 
 .logo {
@@ -12,6 +13,10 @@
 
 .header > ul {
   display: flex;
+}
+
+.login {
+  height: 100%;
 }
 
 .header > ul > li {
@@ -34,4 +39,22 @@
 .RestaurantCard > img {
   width: 100%;
   height: 100px;
+}
+
+.ShimmerCard {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+.restauarntMenu {
+  display: flex;
+  margin: 20px;
+}
+
+.restauarntMenu > div {
+  padding: 50px;
 }

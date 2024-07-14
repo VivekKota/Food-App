@@ -6,7 +6,7 @@ const RestaurantCard = ({ item }) => {
       ></img>
       <h3>{item?.info?.name}</h3>
       <h4>{item?.info?.cuisines.join(", ")}</h4>
-      <h4>{item?.info?.avgRating} Rating</h4>
+      <h4>{item?.info?.sla?.lastMileTravelString}</h4>
     </div>
   );
 };
